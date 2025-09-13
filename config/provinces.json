@@ -1,0 +1,52 @@
+{
+  "001": {
+    "name": "Hà Nội",
+    "region": "north",
+    "priority": "high",
+    "population": 8500000,
+    "is_major_city": true,
+    "processing_order": 1,
+    "estimated_data_volume": "high",
+    "success_rate": 0.95
+  },
+  "031": {
+    "name": "Hải Phòng",
+    "region": "north",
+    "priority": "high",
+    "population": 2000000,
+    "is_major_city": true,
+    "processing_order": 31,
+    "estimated_data_volume": "high",
+    "success_rate": 0.90
+  },
+  "048": {
+    "name": "Đà Nẵng",
+    "region": "central",
+    "priority": "high",
+    "population": 1200000,
+    "is_major_city": true,
+    "processing_order": 48,
+    "estimated_data_volume": "high",
+    "success_rate": 0.88
+  },
+  "079": {
+    "name": "TP. Hồ Chí Minh",
+    "region": "south",
+    "priority": "high",
+    "population": 9000000,
+    "is_major_city": true,
+    "processing_order": 79,
+    "estimated_data_volume": "high",
+    "success_rate": 0.92
+  },
+  "092": {
+    "name": "Cần Thơ",
+    "region": "south",
+    "priority": "high",
+    "population": 1200000,
+    "is_major_city": true,
+    "processing_order": 92,
+    "estimated_data_volume": "high",
+    "success_rate": 0.85
+  }
+}

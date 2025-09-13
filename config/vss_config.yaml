@@ -1,0 +1,172 @@
+# VSS Data Collector Configuration
+# Main configuration file cho VSS automation system
+
+# Proxy Configuration
+proxy:
+  host: ip.mproxy.vn
+  port: 12301
+  username: beba111
+  password: tDV5tkMchYUBMD
+  enabled: true
+
+# API Configuration
+api:
+  base_url: http://vssapp.teca.vn:8088/
+  timeout: 30
+  max_retries: 5
+  rate_limit: 60  # requests per minute
+  headers:
+    User-Agent: VSS-DataCollector/1.0
+    Accept: application/json,text/html,application/xhtml+xml
+    Accept-Language: vi-VN,vi;q=0.9,en;q=0.8
+    Connection: keep-alive
+
+# Database Configuration
+database:
+  type: sqlite
+  path: data/vss_data.db
+  backup_enabled: true
+  backup_interval: 3600  # seconds
+
+# Performance Configuration
+performance:
+  max_concurrent_requests: 10
+  connection_pool_size: 20
+  cache_enabled: true
+  cache_ttl: 3600  # seconds
+  batch_size: 50
+
+# Logging Configuration
+logging:
+  level: INFO
+  file_path: logs/vss_collector.log
+  max_file_size: 10MB
+  backup_count: 5
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+# Data Storage Configuration
+data_storage:
+  formats:
+    - json
+    - csv
+    - sqlite
+  directory: data/collected
+  backup_enabled: true
+  compression: true
+
+# Data Validation Configuration
+validation:
+  enabled: true
+  strict_mode: false
+  schema_path: config/data_schema.json
+  required_fields_weight: 0.4
+  data_type_weight: 0.3
+  format_weight: 0.2
+  completeness_weight: 0.1
+  min_acceptable_score: 0.7
+
+# Monitoring Configuration
+monitoring:
+  progress_updates: true
+  metrics_enabled: true
+  real_time_stats: true
+  dashboard_port: 8080
+  auto_save_interval: 300  # seconds
+
+# Error Handling Configuration
+error_handling:
+  max_retries: 5
+  base_delay: 1.0
+  max_delay: 300.0
+  backoff_strategy: exponential  # exponential, linear, fibonacci
+  jitter_enabled: true
+  circuit_breaker_enabled: true
+
+# Collection Strategy Configuration
+collection:
+  default_strategy: priority_first  # priority_first, geographic, size_based, random
+  priority_provinces:
+    - '001'  # Hà Nội
+    - '031'  # Hải Phòng
+    - '048'  # Đà Nẵng
+    - '079'  # TP. Hồ Chí Minh
+    - '092'  # Cần Thơ
+  
+  data_types:
+    - provinces
+    - districts
+    - wards
+    - hospitals
+    - claims
+  
+  batch_processing:
+    enabled: true
+    batch_size: 10
+    delay_between_batches: 2.0  # seconds
+
+# Security Configuration
+security:
+  enable_ssl_verification: true
+  session_timeout: 3600  # seconds
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 60
+    burst_limit: 10
+  
+  data_encryption:
+    enabled: false
+    algorithm: AES-256
+
+# Export Configuration
+export:
+  auto_export_enabled: true
+  export_formats:
+    - json
+    - csv
+  export_directory: exports
+  retention_days: 90
+
+# Browser Automation Configuration
+browser:
+  type: chrome  # chrome hoặc firefox
+  headless: true
+  window_size: [1366, 768]
+  timeout: 30
+  page_load_timeout: 60
+  implicit_wait: 10
+
+# Anti-detection Configuration
+anti_detection:
+  enable_user_agent_rotation: true
+  enable_viewport_rotation: true
+  enable_random_delays: true
+  min_delay: 1
+  max_delay: 3
+
+# VSS Website URLs
+vss:
+  base_url: https://bhxh.vssid.vn
+  login_url: https://bhxh.vssid.vn/login
+  lookup_url: https://bhxh.vssid.vn/tracuu
+
+# Screenshot Configuration
+screenshot:
+  enabled: true
+  path: browser/screenshots
+  format: png
+  quality: 95
+
+# Notification Configuration (placeholder)
+notifications:
+  enabled: false
+  email:
+    smtp_server: localhost
+    smtp_port: 587
+    username: ""
+    password: ""
+    recipients: []
+  
+  webhook:
+    enabled: false
+    url: ""
+    headers: {}

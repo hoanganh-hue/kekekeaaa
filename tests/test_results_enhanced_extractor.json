@@ -1,0 +1,18 @@
+{
+  "table_based_vss": {
+    "extraction_timestamp": "2025-09-13T16:25:03.914470",
+    "extraction_engine": "VSS_EnhancedExtractor_v2.0",
+    "input_data_provided": true,
+    "html_analysis": {
+      "total_elements": 51,
+      "table_count": 2,
+      "div_count": 1,
+      "span_count": 0,
+      "form_count": 0,
+      "input_count": 0,
+      "has_json_script": false,
+      "text_length": 393,
+      "structure_type": "mixed_structure"
+    },
+    "extracted_fields": {
+      "so_dien_thoai": 
